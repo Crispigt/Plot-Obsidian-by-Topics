@@ -4,8 +4,9 @@ Inspired by this: https://lmcinnes.github.io/datamapplot_examples/arXiv_math/
 
 This script analyzes an Obsidian vault, identifies topical clusters among the notes, and generates an interactive 2D map for exploration. It uses the Qwen suite of models for high-quality embeddings and cluster summarization.
 
-(Visual to be added)
+<img width="2801" height="1282" alt="Screenshot 2025-08-27 213551" src="https://github.com/user-attachments/assets/156d55c7-1caa-4d22-9df8-a6de84bf546f" />
 
+<img width="2387" height="1253" alt="Screenshot 2025-08-27 213703" src="https://github.com/user-attachments/assets/fae3acc4-fb17-41be-8950-d5e34a30ed77" />
 
 Should be noted that I am not done with this project and it's a work in progress though I've started school again. Please 
 
