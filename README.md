@@ -8,7 +8,7 @@ This script analyzes an Obsidian vault, identifies topical clusters among the no
 
 <img width="2387" height="1253" alt="Screenshot 2025-08-27 213703" src="https://github.com/user-attachments/assets/fae3acc4-fb17-41be-8950-d5e34a30ed77" />
 
-Should be noted that I am not done with this project and it's a work in progress though I've started school again. Please 
+Should be noted that I am not done with this project and it's a work in progress though I've started school again. Please feel free to fork on it and improve it :)
 
 ---
 
