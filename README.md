@@ -98,3 +98,8 @@ The visual at the top was generated with:
 python MapMyObsidian.py     --doc-root /mnt/c/Users/Documents/remote-vault     --neighbors 12 --min-dist 0.00     --embed-model Qwen/Qwen3-Embedding-4B     --label-model Qwen/Qwen3-4B-Instruct-2507 --min-samples 1 --min-cluster-size 5
 ```
 
+---
+
+Also another note on things I tried but didn't work for me, I tried using toponymy, but it didn't find any clusters for me, uncertain why, probably a error on my side. I also tried just creating the clusters with UMAP and HDBSCAN and then taking some examplar texts and creating the topics but they usually ended up to specific for the cluster.
+
+
