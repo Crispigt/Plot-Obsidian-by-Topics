@@ -18,15 +18,18 @@ The entire process is automated in a single script:
 
 Firstly the script recursively scans a specified directory for Markdown (.md) files. It then reads each file and strips away Markdown syntax (frontmatter, code blocks, links, etc.) to extract the raw text content.
 
-Then each cleaned note is passed to a Qwen embedding model (Qwen/Qwen3-Embedding-4B). The model converts the text into a high-dimensional numerical vector (embedding) that captures its semantic meaning. Long notes are automatically chunked.
+Then each cleaned note is passed to a Qwen embedding model (Qwen/Qwen3-Embedding-4B). The model converts the text into a high-dimensional numerical vector (embedding) that captures its semantic meaning. Long notes are automatically chunked. 
 
-After this the script uses BERTopic to analyze the relationships between the note embeddings.
+After generating embeddings, the script uses BERTopic to perform semantic clustering and topic modeling.
 
-First, UMAP reduces the dimensionality of the embeddings.
+BERTopic works by,
+firstly applying UMAP dimensionality reduction (to 5D by default) to the embeddings,
+then running HDBSCAN clustering on this reduced space to identify natural groupings,
+on this it's using c-TF-IDF (class-based Term Frequency-Inverse Document Frequency) to analyze each cluster, identifying the words that are most distinctive to that topic compared to all other topics,
+and it's also used for selecting the most representative documents from each cluster (those closest to the cluster centroid),
+then for each identified cluster, the script then sends these distinctive keywords and representative documents to the Qwen LLM. This gives the LLM proper semantic context about what the cluster represents, allowing it to generate meaningful topic titles like "Quantum Mechanics" rather than just summarizing random document snippets.
 
-Then, HDBSCAN identifies dense clusters of notes in this reduced space, grouping semantically similar notes together.
-
-For each identified cluster, the script then sends representative documents and keywords to a Qwen instruction-tuned LLM (Qwen/Qwen3-4B-Instruct-2507). The LLM is prompted to generate a short, descriptive title (e.g., "Python Data Science" or "Project Management") for the topic.
+Before BERTopic is used we also reduce down the embeddings to 2d through UMAP to get a map that we can plot everything on.
 
 After all of this the script generates two interactive HTML files:
 
