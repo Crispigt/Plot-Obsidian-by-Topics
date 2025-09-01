@@ -6,7 +6,7 @@ Obsidian → Qwen embeddings → BERTopic (UMAP + HDBSCAN)
 with point sizes encoding file size or text length.
 
 Example:
-  python obsidian_bertopic_datamapplot.py \
+  python MapMyObsidian.py \
     --doc-root /path/to/ObsidianVault \
     --out-html obsidian_map_datamapplot.html \
     --neighbors 24 --min-dist 0.12 \
