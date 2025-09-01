@@ -67,7 +67,7 @@ Run the script from your terminal, pointing it to your Obsidian vault.
 
 ```Bash
 
-python obsidian_bertopic_datamapplot.py \
+python MapMyObsidian.py \
   --doc-root /path/to/your/ObsidianVault \
   --out-html YourVaultMap.html \
   --neighbors 24 \
