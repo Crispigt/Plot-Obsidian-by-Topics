@@ -29,7 +29,7 @@ on this it's using c-TF-IDF (class-based Term Frequency-Inverse Document Frequen
 and it's also used for selecting the most representative documents from each cluster (those closest to the cluster centroid),
 then for each identified cluster, the script then sends these distinctive keywords and representative documents to the Qwen LLM. This gives the LLM proper semantic context about what the cluster represents, allowing it to generate meaningful topic titles like "Quantum Mechanics" rather than just summarizing random document snippets.
 
-Before BERTopic is used we also reduce down the embeddings to 2d through UMAP to get a map that we can plot everything on.
+The script also creates a separate 2D UMAP reduction of the embeddings for visualization purposes. Note that BERTopic uses its own internal UMAP reduction (to 5D by default via --cluster-dim) for the clustering process, which is independent of the 2D visualization map.
 
 After all of this the script generates two interactive HTML files:
 
@@ -98,7 +98,7 @@ Note: The pipeline works best with vaults containing 100+ notes. For larger coll
 The visual at the top was generated with:
 
 ```Bash
-python MapMyObsidian.py     --doc-root /mnt/c/Users/Documents/remote-vault     --neighbors 12 --min-dist 0.00     --embed-model Qwen/Qwen3-Embedding-4B     --label-model Qwen/Qwen3-4B-Instruct-2507 --min-samples 1 --min-cluster-size 5
+python MapMyObsidian.py     --doc-root /mnt/c/Users/Documents/remote-vault     --neighbors 12 --min-dist 0.00     --embed-model Qwen/Qwen3-Embedding-4B     --label-model Qwen/Qwen3-4B-Instruct-2507 --min-cluster-size 5
 ```
 
 ---
